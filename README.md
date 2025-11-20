@@ -71,3 +71,4 @@ export default defineConfig([
   },
 ])
 ```
+This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).
