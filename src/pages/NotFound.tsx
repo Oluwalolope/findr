@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Home, Search, ArrowLeft } from "lucide-react";
+import Logo from "../components/Logo";
 
 const NotFoundPage = () => {
   return (
@@ -8,10 +9,7 @@ const NotFoundPage = () => {
       <header className="bg-white border-b border-gray-100">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-linear-to-br from-blue-600 to-purple-600 rounded-lg" />
-              <span className="text-xl text-gray-900">Findr</span>
-            </Link>
+            <Logo darkBackground={false} />
           </div>
         </nav>
       </header>
@@ -68,7 +66,7 @@ const NotFoundPage = () => {
               <Link to="/login" className="text-sm text-blue-600 hover:text-blue-700">
                 Login
               </Link>
-              <Link to="/signup" className="text-sm text-blue-600 hover:text-blue-700">
+              <Link to="/register?userType=buyer" className="text-sm text-blue-600 hover:text-blue-700">
                 Sign Up
               </Link>
             </div>

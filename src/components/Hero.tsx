@@ -1,21 +1,31 @@
 import { Search, MapPin } from "lucide-react";
 import Input from "./UI/Input";
 import ImageWithFallback from "./UI/ImageWithFallback";
+import { motion } from "motion/react";
 
-const Hero = ()  => {
+const Hero = () => {
   return (
-    <section id="hero" className="relative overflow-hidden bg-linear-to-b from-blue-50 to-white min-h-dvh sm:min-h-auto">
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-linear-to-b from-blue-50 to-white min-h-dvh sm:min-h-auto"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center lg:text-left"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-linear-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full mb-6">
               <span className="text-sm">✨ AI-Powered Search</span>
             </div>
-            
+
             <h1 className="text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
-              Find products at nearby stores with intelligent search, check prices, and pay online. 
-              Pickup ready, no waiting at checkout.
+              Find products at nearby stores with intelligent search, check
+              prices, and pay online. Pickup ready, no waiting at checkout.
             </h1>
 
             {/* Search Box */}
@@ -28,7 +38,9 @@ const Hero = ()  => {
                     className="pl-12 h-12 border-0 focus-visible:ring-0"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                    <span className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded">AI</span>
+                    <span className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded">
+                      AI
+                    </span>
                   </div>
                 </div>
                 <div className="flex-1 relative">
@@ -47,19 +59,31 @@ const Hero = ()  => {
             <p className="text-sm text-gray-500">
               Popular: Fresh produce, Electronics, Home essentials, Pet supplies
             </p>
-          </div>
+          </motion.div>
 
           {/* Hero Image */}
           <div className="relative lg:block hidden">
-            <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative z-10"
+            >
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
                 alt="Shopping experience"
                 className="rounded-2xl shadow-2xl"
               />
-            </div>
+            </motion.div>
             {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 z-20 max-w-xs">
+            <motion.div
+              initial={{ opacity: 0, y: -30, x: 30 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 z-20 max-w-xs"
+            >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <span>✓</span>
@@ -69,12 +93,12 @@ const Hero = ()  => {
                   <p className="text-gray-900">Ready in 30 mins</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Hero;

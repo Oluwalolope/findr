@@ -1,12 +1,21 @@
-const Card = ({ className, ...props }: React.ComponentProps<"div">) => {
+import { motion } from "motion/react";
+
+const Card = ({
+  className,
+  children
+}: React.ComponentProps<"div">) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+      viewport={{ once: true }}
       data-slot="card"
-      className={`bg-card text-card-foreground flex flex-col gap-6 rounded-xl border
-        ${className}`}
-      {...props}
-    />
+      className={`bg-card text-card-foreground flex flex-col gap-6 rounded-xl border ${className}`}
+    >
+      {children}
+    </motion.div>
   );
-}
+};
 
 export default Card;

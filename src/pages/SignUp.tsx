@@ -10,8 +10,8 @@ const SignupPage = () => {
   const [ searchParams ] = useSearchParams();
   const userType = searchParams.get('userType');
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",

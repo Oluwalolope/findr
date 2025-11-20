@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 const Stats = () => {
   const stats = [
     { value: "100+", label: "Local Stores" },
@@ -11,17 +13,24 @@ const Stats = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              viewport={{ once: true }}
+              key={index}
+              className="text-center"
+            >
               <div className="text-3xl sm:text-4xl text-gray-900 mb-2">
                 {stat.value}
               </div>
               <div className="text-gray-600">{stat.label}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Stats;
