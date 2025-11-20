@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
 @layer utilities {
   @keyframes accordion-down {
     from {

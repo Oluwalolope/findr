@@ -2,6 +2,7 @@ import Card from "./UI/Card";
 import { Store, TrendingUp, Users, Smartphone } from "lucide-react";
 import ImageWithFallback from "./UI/ImageWithFallback";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
+import { Link } from "react-router";
 
 export function StoreOwners() {
   const benefits = [
@@ -53,7 +54,7 @@ export function StoreOwners() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-linear-to-br from-blue-600 to-purple-600 rounded-2xl overflow-hidden">
+        <div id="become-a-seller" className="bg-linear-to-br from-blue-600 to-purple-600 rounded-2xl overflow-hidden">
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="p-8 sm:p-12 flex flex-col justify-center">
               <h3 className="text-white mb-4">
@@ -63,13 +64,17 @@ export function StoreOwners() {
                 Join thousands of local stores reaching more customers and increasing sales. 
                 Set up your store in minutes — zero upfront costs, only pay when you sell.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white rounded-md p-2 text-blue-600 hover:bg-gray-100 cursor-pointer">
-                  Become a Seller
-                </button>
-                <button className="text-white hover:text-white/80 cursor-pointer">
-                  Learn More
-                </button>
+              <div className="flex flex-col sm:flex-row gap-4 items-center">
+                <Link to='/register?userType=seller' className="inline-block">
+                  <button className="bg-white rounded-md p-2 text-blue-600 hover:bg-gray-100 cursor-pointer">
+                    Become a Seller
+                  </button>
+                </Link>
+                <a href="/#faq" className="inline-block">
+                  <button className="text-white hover:text-white/80 cursor-pointer">
+                    Learn More
+                  </button>
+                </a>
               </div>
               <ul className="text-blue-100 text-sm mt-6 space-y-2">
                 <li>✓ Free to start</li>
