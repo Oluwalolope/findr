@@ -94,7 +94,7 @@ const Header = () => {
                     <button className="w-full">Login</button>
                   </Link>
                   <Link to='/register?userType=buyer'>
-                    <button className="w-full bg-black text-white rounded-4xl py-2 px-6">
+                    <button className="w-full bg-black text-white rounded-md py-2 px-6">
                       Get Started
                     </button>
                   </Link>

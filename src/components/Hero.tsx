@@ -66,7 +66,7 @@ const Hero = ()  => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Order confirmed</p>
-                  <p className="text-gray-900">Ready in 15 mins</p>
+                  <p className="text-gray-900">Ready in 30 mins</p>
                 </div>
               </div>
             </div>
