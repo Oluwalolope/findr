@@ -80,11 +80,9 @@ const CheckOut = () => {
     0
   );
 
-  const shipping = 7.28; // fixed shipping cost
-
   const valueAddedTax = subTotalPrice * 0.0025; // fixed shipping cost
 
-  const totalPrice = subTotalPrice + shipping + valueAddedTax;
+  const totalPrice = subTotalPrice + valueAddedTax;
 
   const copyToClipBoard = (text: string) => {
     navigator.clipboard
@@ -99,10 +97,7 @@ const CheckOut = () => {
 
   return (
     <div className="bg-background-main">
-      <main className="w-full max-w-[1512px] mx-auto py-[186px] px-4 md:px-6 lg:px-[138px]">
-        <h1 className="font-inter font-medium text-[#000000] text-[30px] text-center leading-8 hidden md:inline-block pb-10">
-          Check Out
-        </h1>
+      <main className="w-full max-w-[1512px] mx-auto px-4 md:px-6 lg:px-[138px]">
         <section className="flex flex-col-reverse md:flex-row gap-y-5 w-full h-full">
           <div className="flex-1 mx-auto md:mx-0 pt-[75px] md:pe-[18px]">
             <div className="md:p-12 ps-0 flex flex-col gap-9 justify-between">
@@ -218,7 +213,7 @@ const CheckOut = () => {
                     </div>
                     <button
                       type="button"
-                      className="bg-[#32C770] hover:bg-green-700 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9"
+                      className="bg-black hover:bg-black/70 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9"
                     >
                       Pay {currencyFormatter.format(totalPrice)}
                     </button>
@@ -276,7 +271,7 @@ const CheckOut = () => {
                     />
                   </div>
 
-                  <button className="bg-[#32C770] hover:bg-green-700 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9">
+                  <button className="bg-black hover:bg-black/70 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9">
                     Pay {currencyFormatter.format(totalPrice)}
                   </button>
                   <p className="font-inter font-normal text-[#ACACAC] text-[14px]  leading-[22px]">
@@ -330,7 +325,7 @@ const CheckOut = () => {
                       </button>
                     </div>
                   </div>
-                  <button className="bg-[#32C770] hover:bg-green-700 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px]">
+                  <button className="bg-black hover:bg-black/70 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px]">
                     Confirm Payment
                   </button>
                   <p className="font-inter font-normal text-[#ACACAC] text-[14px]  leading-[22px]">
@@ -365,14 +360,6 @@ const CheckOut = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-row items-center justify-between gap-4">
-                  <p className="font-inter font-medium text-[#000000] text-[16px] leading-8">
-                    Shipping
-                  </p>
-                  <p className="font-inter font-medium text-[#000000] text-[16px] leading-8">
-                    {currencyFormatter.format(shipping)}
-                  </p>
-                </div>
               </div>
 
               <div className="flex flex-row items-center justify-between gap-4">

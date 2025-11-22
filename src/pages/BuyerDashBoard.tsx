@@ -5,8 +5,11 @@ import Logo from "../components/Logo";
 import Card from "../components/UI/Card";
 import Badge from "../components/UI/Badge";
 import currencyFormatter from "../util/formatter";
+import { useState } from "react";
+import CheckOutModal from "../components/CheckOutModal";
 
 const BuyerDashboard = () => {
+  const [isCheckOutOpen, setIsCheckOutOpen] = useState<boolean>(false);
   // Mock cart data
   const cartItems = [
     { id: 1, name: "Wireless Headphones", store: "Tech Haven", price: 13000, quantity: 1 },
@@ -57,6 +60,10 @@ const BuyerDashboard = () => {
       default:
         return "bg-gray-100 text-gray-800";
     }
+  };
+
+  const handleCloseCheckOut = () => {
+    setIsCheckOutOpen(false);
   };
 
   return (
@@ -196,7 +203,7 @@ const BuyerDashboard = () => {
                       </div>
                     </div>
 
-                    <button className="w-full bg-black hover:bg-black/80 cursor-pointer text-white p-4 flex justify-center items-center gap-2 rounded-md">
+                    <button onClick={() => setIsCheckOutOpen(true)}  className="w-full bg-black hover:bg-black/80 cursor-pointer text-white p-4 flex justify-center items-center gap-2 rounded-md">
                       <CheckCircle className="w-4 h-4 mr-2" />
                       Complete Purchase
                     </button>
@@ -211,6 +218,8 @@ const BuyerDashboard = () => {
           </div>
         </div>
       </main>
+
+      <CheckOutModal isOpen={isCheckOutOpen} handleClose={handleCloseCheckOut} />
     </div>
   );
 }

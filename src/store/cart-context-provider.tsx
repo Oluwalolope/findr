@@ -4,7 +4,20 @@ import CartContext from "./cart-context";
 
 const cartItemsFromLocalStorage = localStorage.getItem('cartItems');
 
-let storedCartItems: CartItems[] =  [];
+let storedCartItems: CartItems[] =  [
+  {
+    id: 1,
+    quantity: 4
+  },
+  {
+    id: 4,
+    quantity: 1
+  },
+  {
+    id: 2,
+    quantity: 5
+  },
+];
 
 if (cartItemsFromLocalStorage) {
   storedCartItems = JSON.parse(cartItemsFromLocalStorage);

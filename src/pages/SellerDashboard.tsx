@@ -23,10 +23,10 @@ const SellerDashboard = () => {
   ];
 
   const recentProducts = [
-    { id: 1, name: "Wireless Headphones", price: 89.99, stock: 15, status: "Active" },
-    { id: 2, name: "Smart Watch", price: 199.99, stock: 8, status: "Active" },
-    { id: 3, name: "Laptop Stand", price: 45.99, stock: 0, status: "Out of Stock" },
-    { id: 4, name: "USB-C Cable", price: 12.99, stock: 50, status: "Active" },
+    { id: 1, name: "Wireless Headphones", price: 190000, stock: 15, status: "Active" },
+    { id: 2, name: "Smart Watch", price: 120000, stock: 8, status: "Active" },
+    { id: 3, name: "Laptop Stand", price: 25000, stock: 0, status: "Out of Stock" },
+    { id: 4, name: "USB-C Cable", price: 3000, stock: 50, status: "Active" },
   ];
 
 
