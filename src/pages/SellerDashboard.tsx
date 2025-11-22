@@ -17,7 +17,7 @@ const SellerDashboard = () => {
   // Mock data for demonstration
   const stats = [
     { label: "Total Products", value: "24", icon: Package, color: "text-blue-600" },
-    { label: "Total Revenue", value: currencyFormatter.format(3450), icon: DollarSign, color: "text-green-600" },
+    { label: "Total Revenue", value: currencyFormatter.format(2500000), icon: DollarSign, color: "text-green-600" },
     { label: "Orders Today", value: "12", icon: ShoppingBag, color: "text-purple-600" },
     { label: "Growth", value: "+23%", icon: TrendingUp, color: "text-orange-600" },
   ];

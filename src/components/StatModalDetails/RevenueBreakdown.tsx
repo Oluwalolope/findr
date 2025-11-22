@@ -1,9 +1,11 @@
+import currencyFormatter from "../../util/formatter";
+
 const RevenueBreakdown = () => {
   const revenueBreakdown = [
-    { period: "Today", amount: "$450" },
-    { period: "This Week", amount: "$1,230" },
-    { period: "This Month", amount: "$3,450" },
-    { period: "All Time", amount: "$28,900" },
+    { period: "Today", amount: currencyFormatter.format(25000) },
+    { period: "This Week", amount: currencyFormatter.format(70000) },
+    { period: "This Month", amount: currencyFormatter.format(350000) },
+    { period: "All Time", amount: currencyFormatter.format(2500000) },
   ];
   return (
     <div className="space-y-4">
