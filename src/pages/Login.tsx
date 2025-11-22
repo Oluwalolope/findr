@@ -40,6 +40,7 @@ const LoginPage = () => {
     if (validateLogin()) {
       console.log("Login successful:", formData);
       // Handle login logic here
+      sessionStorage.setItem('auth', 'true');
     }
   };
 

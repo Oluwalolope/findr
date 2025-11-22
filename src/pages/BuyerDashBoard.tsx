@@ -1,4 +1,5 @@
-import { Link } from "react-router";
+/* eslint-disable react-refresh/only-export-components */
+import { Link, redirect } from "react-router";
 import { ShoppingCart, Package, CreditCard, MapPin, Clock, CheckCircle, LogOut } from "lucide-react";
 import Logo from "../components/Logo";
 import Card from "../components/UI/Card";
@@ -215,3 +216,13 @@ const BuyerDashboard = () => {
 }
 
 export default BuyerDashboard;
+
+export const loader = () => {
+  // Check for the "isLoggedIn" flag in the browser's session storage
+  const isLoggedIn = sessionStorage.getItem(`auth`) === 'true';
+
+  if (!isLoggedIn) {
+    // If not logged in, redirect to the login page
+    return redirect('/login');
+  }
+}

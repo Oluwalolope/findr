@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import { Search, MapPin, ShoppingCart, Filter } from "lucide-react";
 
 import {
@@ -16,11 +16,14 @@ import Card from "../components/UI/Card";
 import Badge from "../components/UI/Badge";
 import currencyFormatter from "../util/formatter";
 
+const userIsLoggedIn = false;
+
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(searchParams.get("product") || "");
   const [location, setLocation] = useState(searchParams.get("location") || "");
   const [sortBy, setSortBy] = useState("relevance");
+  const navigate = useNavigate();
 
   const [products, setProducts] = useState(MOCK_PRODUCTS);
 
@@ -38,6 +41,13 @@ const SearchPage = () => {
     setSearchParams(params);
   };
 
+  const handleAddToCart = ( id: string | number ) => {
+    if (userIsLoggedIn) {
+      console.log(id);
+    } else {
+      navigate('/login');
+    }
+  }
 
   const handleSort = (value: string) => {
     setSortBy(value);
@@ -174,6 +184,7 @@ const SearchPage = () => {
                     </span>
                     <button
                       className="bg-black hover:bg-black/70 text-white inline-grid place-items-center gap-2 p-2 rounded-md cursor-pointer"
+                      onClick={() => handleAddToCart(product.id)}
                       disabled={!product.inStock}
                     >
                       Add to Cart

@@ -1,4 +1,5 @@
-import { Link } from "react-router";
+/* eslint-disable react-refresh/only-export-components */
+import { Link, redirect } from "react-router";
 import { Package, DollarSign, ShoppingBag, TrendingUp, Plus, Edit, Trash2, LogOut } from "lucide-react";
 import { useState } from "react";
 import Logo from "../components/Logo";
@@ -152,3 +153,13 @@ const SellerDashboard = () => {
 }
 
 export default SellerDashboard;
+
+export const loader = () => {
+  // Check for the "isLoggedIn" flag in the browser's session storage
+  const isLoggedIn = sessionStorage.getItem(`auth`) === 'true';
+
+  if (!isLoggedIn) {
+    // If not logged in, redirect to the login page
+    return redirect('/login');
+  }
+}
