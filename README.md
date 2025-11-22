@@ -223,7 +223,7 @@ Findr introduces an **AI-powered natural language search system** that allows us
 |------------|------|
 | **Amarachi Chibuike** | Team Lead & UI/UX Designer |
 | **Oluwalolope Adeleye** | Frontend Developer & Technical Lead |
-| **Lota** | Business Strategist |
+| **Lotachukwu Ezeonye** | Business Strategist |
 | **Peace Udotong** | Backend Developer |
 | **Daniella Ezeigbo** | Backend Developer |
 

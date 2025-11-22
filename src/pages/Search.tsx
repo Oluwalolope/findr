@@ -73,11 +73,6 @@ const SearchPage = () => {
               <ShoppingCart className="w-5 h-5" />
             </button>
             </Link>
-            <Link to="/seller-dashboard">
-            <button>
-              <ShoppingCart className="w-5 h-5" />
-            </button>
-            </Link>
           </div>
         </div>
       </header>
