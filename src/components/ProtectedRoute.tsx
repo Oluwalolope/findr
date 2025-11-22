@@ -1,21 +1,18 @@
-import { Navigate } from 'react-router';
+import { Navigate, useLocation } from "react-router";
 
 type Props = {
   children: React.ReactNode;
 };
 
 const ProtectedRoute = ({ children }: Props) => {
-  // Check for the "isLoggedIn" flag in the browser's session storage
-  const isLoggedIn = sessionStorage.getItem(`auth`) === 'true';
+  const isAuth = sessionStorage.getItem("auth");
+  const location = useLocation();
 
-  if (!isLoggedIn) {
-    // If not logged in, redirect to the login page
-    <Navigate to='/login' replace />
-    return
+  if (!isAuth) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // If logged in, render the component (the dashboard)
-  return <>{children}</>;
+  return children;
 };
 
 export default ProtectedRoute;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Input from "../components/UI/Input";
 import Label from "../components/UI/Label";
 import Logo from "../components/Logo";
@@ -12,6 +12,8 @@ const LoginPage = () => {
     password: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -36,11 +38,16 @@ const LoginPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (validateLogin()) {
       console.log("Login successful:", formData);
-      // Handle login logic here
+
+      // Save auth
       sessionStorage.setItem('auth', 'true');
+
+      // Redirect to previous page OR default
+      const redirectTo = location.state?.from?.pathname || "/buyer-dashboard";
+      navigate(redirectTo, { replace: true });
     }
   };
 
