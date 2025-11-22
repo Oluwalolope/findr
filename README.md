@@ -1,74 +1,232 @@
-# React + TypeScript + Vite
+# FINDR – MVP Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Findr is a smart product and service discovery platform that helps users find what they want quickly and connects them to sellers or service providers around them. With AI-powered search, users can type natural phrases like:
 
-Currently, two official plugins are available:
+- “I want to buy fresh fish”
+- “I need someone to fix my television”
+- “I want to order a new pair of shoes”
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Findr processes the request, classifies it into relevant categories, and presents users with matching sellers and service providers.
 
-## React Compiler
+This MVP focuses on proving the core functionality, usability, and user experience of the platform.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Table of Contents
+1. Features  
+2. Tech Stack  
+3. Installation & Setup   
+4. Running the App  
+5. AI Search Flow  
+6. User Flow  
+7. API Endpoints  
+8. Future Improvements  
+9. Project Intent & background
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 1. Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### User Features
+- 🔍 **AI-powered search**  
+  Users can search using natural language instead of strict keywords.
+- 📍 **Location-aware results**  
+  Search results consider the user’s location where available.
+- 📦 **Product & service browsing**  
+  Users can discover sellers offering what they need.
+- 👤 **User Dashboard**  
+  Users can see their current Cart. Their order history and proceed to checkout.
+- 📱 **Mobile-friendly design**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Seller Features
+- 🛍 **Seller Dashboard**  
+  Sellers can add and manage products or services.
+- 📊 **Basic analytics**  
+  Shows product inventory, Orders, Revenue Generated, Growth Analytics.
+
+---
+
+## 2. Tech Stack
+
+### Frontend
+- React
+- React Router
+- Tailwind CSS  
+- Radix UI (Component Library)
+- Lucide React (Icon Library)
+- Framer Motion (Animation Library)
+- Fetch for API communication
+
+### Backend
+Hosted on a seperate private repository
+- Django
+- REST API 
+- Authentication with Role-based JWT
+
+### AI Processing
+- LLM-based classification  
+- Category detection logic
+
+### Database
+- PostgreSQL
+
+---
+
+## 3. Installation & Setup
+
+### Clone the Repository
+```bash
+git clone https://github.com/your-username/findr.git
+```
+### Navigate into the folder
+```bash
+cd findr
+```
+### install the dependencies
+```bash
+npm install
+```
+## 4. Runnning the App
+
+### Development Mode
+```bash
+npm run dev
+```
+### Production Build
+```bash
+npm run build
+npm run preview
+```
+### The application will default to
+```bash
+http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 5. AI Search Flow
+1. User enters a natural language search phrase.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. The request is sent to the AI classification logic.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- The AI determines:
+
+- The user's intent
+
+- Product or service category
+
+3. The system fetches matching sellers from local data or a database.
+
+4. Results are displayed to the user.
+
+---
+
+## 6. User Flow
+### User Journey
+```bash
+Home → Enter Search → AI Processing → Result Page → View Seller → Contact / Save Item
+
 ```
-This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).
+### Seller Journey
+```bash
+Register / Login → Dashboard → Add Items → Await discovery in search results
+
+
+```
+
+### If No Results
+
+The system may suggest:
+
+- Nearest related categories
+
+- Similar sellers
+
+- Alternative options
+
+---
+## 7. API Endpoints (example)
+### POST 
+Processes user search query
+
+#### Request Body
+```bash
+{
+  "query": "I want to buy fresh catfish",
+  "location": "Lagos"
+}
+```
+#### Response
+```bash
+{
+  "category": "Seafood",
+  "results": [
+    {
+      "business": "Ocean Fresh",
+      "location": "Lekki"
+    }
+  ]
+}
+```
+
+### POST
+
+Used for managing seller listings
+
+#### Sample Request
+```bash
+{
+  "seller_id": 12,
+  "name": "Canon DSLR Camera Service",
+  "category": "Electronics Repair",
+  "location": "Yaba"
+}
+
+```
+
+---
+
+## 8. Future Improvements
+
+- 📱 Mobile app version
+
+- 🔥 Real-time chat between buyers & sellers
+
+- ⭐ Reviews & Ratings
+
+- 💳 Online payment integration
+
+- 🧠 Improved AI intent classification
+
+- 🌍 Geo-map-based search
+
+- 🏬 Seller storefront pages
+
+- 📈 Analytics dashboard
+
+- 🧾 Order tracking
+
+## 9. Project Intent & Background
+
+Findr was developed as an MVP submission for the **NITHUB Nationwide Hackathon**.  
+The project aims to solve a major problem faced by small businesses and customers:
+
+- Many small and medium enterprises (SMEs) struggle to be discovered online.
+- Customers often have difficulty finding reliable sellers or service providers quickly.
+- Search platforms today rely on strict keywords rather than natural language.
+
+Findr introduces an **AI-powered natural language search system** that allows users to search the way they speak in real life and immediately discover relevant products and services around them.
+
+---
+
+## Team Members & Roles
+
+| Team Member | Role |
+|------------|------|
+| **Amarachi Chibuike** | Team Lead & UI/UX Designer |
+| **Oluwalolope Adeleye** | Frontend Developer & Technical Lead |
+| **Lota** | Business Strategist |
+| **Peace Udotong** | Backend Developer |
+| **Daniella** | Backend Developer |
+
+Each member contributed to building a functioning MVP that demonstrates the core features, user experience, and technical feasibility of Findr.
+
+---
