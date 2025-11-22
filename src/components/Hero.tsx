@@ -1,9 +1,29 @@
-import { Search, MapPin } from "lucide-react";
+import { Search, MapPin, Check } from "lucide-react";
 import Input from "./UI/Input";
 import ImageWithFallback from "./UI/ImageWithFallback";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router";
+import { useRef } from "react";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const productSearchRef = useRef< HTMLInputElement | null>(null);
+  const locationSearchRef = useRef< HTMLInputElement | null>(null);
+
+  const handleSearch = () => {
+    let path = '/search';
+
+    if (productSearchRef.current!.value) {
+      path = `/search?product=${productSearchRef.current!.value}` 
+    }
+    
+    if (locationSearchRef.current!.value) {
+      path = `/search?${productSearchRef.current!.value && `product=${productSearchRef.current!.value}&`}location=${locationSearchRef.current!.value}` 
+    }
+
+    navigate(path)
+  }
+
   return (
     <section
       id="hero"
@@ -35,6 +55,7 @@ const Hero = () => {
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <Input
                     placeholder="Try 'I want fresh fish'"
+                    ref={productSearchRef}
                     className="pl-12 h-12 border-0 focus-visible:ring-0"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2">
@@ -47,10 +68,11 @@ const Hero = () => {
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <Input
                     placeholder="Your location"
+                    ref={locationSearchRef}
                     className="pl-12 h-12 border-0 focus-visible:ring-0"
                   />
                 </div>
-                <button className="h-12 px-8 rounded-md bg-black text-white hover:bg-black/80 cursor-pointer">
+                <button className="h-12 px-8 rounded-md bg-black text-white hover:bg-black/80 cursor-pointer"   onClick={handleSearch}>
                   Search
                 </button>
               </div>
@@ -86,7 +108,7 @@ const Hero = () => {
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <span>✓</span>
+                  <Check />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Order confirmed</p>

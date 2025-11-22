@@ -4,11 +4,19 @@ import NotFoundPage from './pages/NotFound';
 import LoginPage from './pages/Login';
 import SignupPage from './pages/SignUp';
 import ForgotPasswordPage from './pages/ForgotPassword';
+import SearchPage from './pages/Search';
+import SellerDashboard from './pages/SellerDashboard';
+import BuyerDashboard from './pages/BuyerDashBoard';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/search',
+    element: <SearchPage />,
     errorElement: <NotFoundPage />,
   },
   {
@@ -24,6 +32,16 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <SignupPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/seller-dashboard',
+    element: <SellerDashboard />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/buyer-dashboard',
+    element: <BuyerDashboard />,
     errorElement: <NotFoundPage />,
   },
 ]);

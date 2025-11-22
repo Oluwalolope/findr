@@ -8,7 +8,7 @@ import { StoreOwners } from "../components/StoreOwners";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="min-h-screen bg-white">
       <Header />
       <Hero />
       <Stats />
@@ -16,7 +16,7 @@ const HomePage = () => {
       <HowItWorks />
       <StoreOwners />
       <Footer />
-    </>
+    </div>
   );
 };
 
