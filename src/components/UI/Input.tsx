@@ -1,3 +1,5 @@
+// This input component was implemented from Radix UI
+
 const Input = ({ className, type, ...props }: React.ComponentProps<"input">) => {
   return (
     <input

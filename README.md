@@ -225,7 +225,7 @@ Findr introduces an **AI-powered natural language search system** that allows us
 | **Oluwalolope Adeleye** | Frontend Developer & Technical Lead |
 | **Lota** | Business Strategist |
 | **Peace Udotong** | Backend Developer |
-| **Daniella** | Backend Developer |
+| **Daniella Ezeigbo** | Backend Developer |
 
 Each member contributed to building a functioning MVP that demonstrates the core features, user experience, and technical feasibility of Findr.
 

@@ -1,4 +1,7 @@
 import * as React from "react";
+
+// This text area component was implemented from Radix UI
+
 const Textarea = ({ className, ...props }: React.ComponentProps<"textarea">) => {
   return (
     <textarea
