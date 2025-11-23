@@ -1,27 +1,29 @@
+import currencyFormatter from "../../util/formatter";
+
 const OrderBreakdown = () => {
   const todayOrders = [
     {
       id: "#1234",
       customer: "John Doe",
-      amount: "$89.99",
+      amount: currencyFormatter.format(20000),
       status: "Completed",
     },
     {
       id: "#1235",
       customer: "Jane Smith",
-      amount: "$199.99",
+      amount: currencyFormatter.format(5000),
       status: "Processing",
     },
     {
       id: "#1236",
       customer: "Bob Johnson",
-      amount: "$45.99",
+      amount: currencyFormatter.format(32000),
       status: "Completed",
     },
     {
       id: "#1237",
       customer: "Alice Brown",
-      amount: "$12.99",
+      amount: currencyFormatter.format(100000),
       status: "Completed",
     },
   ];
