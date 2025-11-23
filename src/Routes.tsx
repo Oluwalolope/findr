@@ -28,6 +28,10 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   {
+    path: '/logout',
+    loader: () => import('./pages/LogOut').then((module) => module.loader()),
+  },
+  {
     path: '/forgot-password',
     element: <ForgotPasswordPage />,
     errorElement: <NotFoundPage />,

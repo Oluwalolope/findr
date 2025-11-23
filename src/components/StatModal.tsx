@@ -19,7 +19,7 @@ const StatModal = ({ selectedStat, handleSelectedStat }: StatModalProps) => {
     >
       <div className="sm:max-w-[500px]">
         <header>
-          <h4>{selectedStat}</h4>
+          <h4 className="font-medium pb-2">{selectedStat}</h4>
           <p>Detailed information about your {selectedStat?.toLowerCase()}</p>
         </header>
         <div className="mt-4">

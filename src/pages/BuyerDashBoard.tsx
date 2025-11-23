@@ -77,8 +77,8 @@ const BuyerDashboard = () => {
               <span className="text-gray-400">|</span>
               <span className="text-gray-600">My Dashboard</span>
             </div>
-            <Link to="/">
-              <button className="cursor-pointer hover:text-red-400 transition-all duration-300">
+            <Link to="/logout">
+              <button title="log out"  className="cursor-pointer hover:text-red-400 transition-all duration-300">
                 <LogOut />
               </button>
             </Link>
