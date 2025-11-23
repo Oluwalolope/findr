@@ -97,8 +97,8 @@ const CheckOut = () => {
 
   return (
     <div className="bg-background-main">
-      <main className="w-full max-w-[1512px] mx-auto px-4 md:px-6 lg:px-[138px]">
-        <section className="flex flex-col-reverse md:flex-row gap-y-5 w-full h-full">
+      <main className="w-full max-w-4xl mx-auto px-4 md:px-6 lg:px-[138px]">
+        <section className="flex flex-col-reverse gap-y-5 w-full h-full">
           <div className="flex-1 mx-auto md:mx-0 pt-[75px] md:pe-[18px]">
             <div className="md:p-12 ps-0 flex flex-col gap-9 justify-between">
               <h2 className="font-inter font-medium text-[#000000] text-[28px] leading-8 border-b border-[#DEE2E6] pb-3">
