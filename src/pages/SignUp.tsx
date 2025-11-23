@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff, ShoppingBag, Store } from "lucide-react";
-import { Link, useSearchParams } from "react-router";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router";
 import Label from "../components/UI/Label";
 import Input from "../components/UI/Input";
 import Textarea from "../components/UI/Textarea";
@@ -9,6 +9,8 @@ import Logo from "../components/Logo";
 const SignupPage = () => {
   const [ searchParams ] = useSearchParams();
   const userType = searchParams.get('userType');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
@@ -73,7 +75,14 @@ const SignupPage = () => {
     
     if (validateSignup()) {
       console.log("Signup successful:", { ...formData, userType });
-      // Handle signup logic here
+      // Save auth
+      sessionStorage.setItem('auth', 'true');
+
+      const defaultPath = userType === 'buyer'? "/buyer-dashboard" : "/seller-dashboard";
+
+      // Redirect to previous page OR default
+      const redirectTo = location.state?.from?.pathname || defaultPath;
+      navigate(redirectTo, { replace: true });
     }
   };
 
