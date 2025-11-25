@@ -52,7 +52,7 @@ const HowItWorks = () => {
               className="relative"
             >
               <div className="text-center">
-                <div className="inline-flex w-16 h-16 bg-linear-to-br from-blue-600 to-purple-600 rounded-2xl items-center justify-center mb-4">
+                <div className="inline-flex w-16 h-16 bg-blue-600 rounded-2xl items-center justify-center mb-4">
                   <step.icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="relative z-10 bg-white px-4">

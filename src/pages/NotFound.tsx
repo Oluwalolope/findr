@@ -47,7 +47,7 @@ const NotFoundPage = () => {
             </Link>
             <button
               onClick={() => window.history.back()}
-              className="w-full sm:w-auto"
+              className="w-auto"
             >
               <button className="w-full  bg-white rounded-md inline-flex flex-row items-center text-black py-2 px-5 cursor-pointer border border-neutral-400/20 hover:bg-neutral-400/10">
                 <ArrowLeft className="w-5 h-5 mr-2" />

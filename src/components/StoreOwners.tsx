@@ -28,7 +28,7 @@ export function StoreOwners() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full mb-6">
             <Store className="w-4 h-4" />
             <span className="text-sm">For Store Owners</span>
           </div>
@@ -44,8 +44,8 @@ export function StoreOwners() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {benefits.map((benefit, index) => (
             <Card key={index} className="p-6 bg-white border-neutral-300">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <benefit.icon className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <benefit.icon className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-gray-900 mb-2">{benefit.title}</h3>
               <p className="text-gray-600">{benefit.description}</p>
@@ -54,7 +54,7 @@ export function StoreOwners() {
         </div>
 
         {/* CTA Section */}
-        <div id="become-a-seller" className="bg-linear-to-br from-blue-600 to-purple-600 rounded-2xl overflow-hidden">
+        <div id="become-a-seller" className="bg-blue-600 rounded-2xl overflow-hidden">
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="p-8 sm:p-12 flex flex-col justify-center">
               <h3 className="text-white mb-4">

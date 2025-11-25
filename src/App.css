@@ -5,6 +5,10 @@ html {
   scroll-padding-top: 70px;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+}
+
 @layer utilities {
   @keyframes accordion-down {
     from {

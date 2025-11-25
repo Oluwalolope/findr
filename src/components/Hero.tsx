@@ -39,8 +39,8 @@ const Hero = () => {
             viewport={{ once: true }}
             className="text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-linear-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full mb-6">
-              <span className="text-sm">✨ AI-Powered Search</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full mb-6">
+              <span className="text-sm">AI-Powered Search</span>
             </div>
 
             <h1 className="text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
