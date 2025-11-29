@@ -4,7 +4,7 @@ import ImageWithFallback from "./UI/ImageWithFallback";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
 import { Link } from "react-router";
 
-export function StoreOwners() {
+const StoreOwners = () => {
   const benefits = [
     {
       icon: Users,
@@ -97,3 +97,5 @@ export function StoreOwners() {
     </section>
   );
 }
+
+export default StoreOwners;

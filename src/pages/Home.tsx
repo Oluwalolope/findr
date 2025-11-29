@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import HowItWorks from "../components/HowItWorks";
 import Stats from "../components/Stats";
-import { StoreOwners } from "../components/StoreOwners";
+import StoreOwners from "../components/StoreOwners";
 
 const HomePage = () => {
   return (
